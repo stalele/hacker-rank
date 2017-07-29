@@ -121,56 +121,6 @@ public class LinkedList {
 		return 0;  
 	}
 
-	//not working
-	Node mergeLists(Node headA, Node headB) {
-		// This is a "method-only" submission. 
-		// You only need to complete this method 
-		if(headA==null && headB == null)
-			return null;
-		Node prevA = null;
-		Node currentA = headA;
-		Node nextA = currentA.next;
-
-		Node currentB = headB;
-		Node nextB = currentB.next;
-		while(nextA!=null && nextB!=null){
-			if(currentA.data < currentB.data) {
-				prevA = currentA;
-				currentA = nextA;
-				nextA = nextA.next;
-
-			} else {
-				if(prevA == null){
-					currentB.next = current;
-					head = currentB;
-					prevA = currentB;
-					currentB = nextB;
-					nextB = nextB.next;  
-				}
-				prevA.next = currentB;
-				currentB.next = currentA;
-				currentB = nextB;
-				nextB = nextB.next;
-			}
-		}
-		if((nextA == null && nextB ==null) && (currentA.data < currentB.data)){
-			currentA.next = currentB;
-			currentB = null;
-		}
-		else if((nextA != null && nextB!=null)){
-			while(currentA != null){
-				if(currentA.data < currentB.data){
-					prevA = currentA;
-					currentA = nextA;
-					nextA = nextA.next;
-				}else{
-					prevA.next = currentB;
-					currentB.next = currentA;
-				}
-			}
-		}
-		return headA;
-	}
 	
 	//working with dummy head
 	Node mergeListsWithDummyVariable(Node headA, Node headB) {
